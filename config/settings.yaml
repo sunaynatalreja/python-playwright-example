@@ -1,0 +1,9 @@
+browsers:
+  supported:
+    - chrome
+    - edge
+  headless: false
+  classes:
+    chrome: "core.driver_factory.chrome_browser.ChromeBrowser"
+    edge: "core.driver_factory.edge_browser.EdgeBrowser"
+base_url: "https://play.grafana.org/"
