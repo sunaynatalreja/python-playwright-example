@@ -15,7 +15,7 @@ class TestGrafanaHome:
     """)
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.smoke
-    def test_graphana_home(self,page):
+    def test_grafana_home(self,page):
         home = HomePage(page)
         home.open_home()
         home.verify_basic_links()
