@@ -136,6 +136,11 @@ class HomePage(BasePage):
 
     def verify_links_in_data_panel(self):
         with allure.step("Verify Links In Panel"):
+            for _ in range(10):
+                self.page.mouse.wheel(0, 1000)
+                self.page.wait_for_timeout(200)
+                if self.page.locator(LINKS_PANEL).count() > 0:
+                    break
             parent = self.page.locator(LINKS_PANEL)
             parent.wait_for(state="attached")
             child = parent.locator("xpath=.//article")

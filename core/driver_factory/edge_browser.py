@@ -14,10 +14,25 @@ class EdgeBrowser(BrowserBase):
             headless=self.headless,
             slow_mo=self.slow_mo
         )
-        return self.browser
+        self.browser_context = self.browser.new_context(viewport=None)
+        self.page = self.browser_context.new_page()
+
+        return self.browser, self.browser_context, self.page
 
 
     def stop(self):
+        if self.page:
+            self.page.close()
+            self.page = None
+
+        if self.browser_context:
+            self.browser_context.close()
+            self.browser_context = None
+
+        if self.browser:
+            self.browser.close()
+            self.browser = None
+
         if self.pw:
             self.pw.stop()
             self.pw = None

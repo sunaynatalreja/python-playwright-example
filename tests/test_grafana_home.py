@@ -15,9 +15,7 @@ class TestGrafanaHome:
     """)
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.smoke
-    def test_grafana_home(self,page):
-        home = HomePage(page)
-        home.open_home()
+    def test_grafana_home(self,home):
         home.verify_basic_links()
 
     @allure.feature("Validate PDF Export")
@@ -29,9 +27,7 @@ class TestGrafanaHome:
     AND the content type must be application/pdf
     """)
     @pytest.mark.regression
-    def test_export_pdf(self,page):
-        home = HomePage(page)
-        home.open_home()
+    def test_export_pdf(self,home):
         home.verify_pdf_export()
 
     @allure.feature("Validate Code Export")
@@ -42,9 +38,7 @@ class TestGrafanaHome:
     THEN a code file should be downloaded successfully
     """)
     @pytest.mark.regression
-    def test_export_code(self,page):
-        home = HomePage(page)
-        home.open_home()
+    def test_export_code(self,home):
         home.verify_code_export()
 
     @allure.feature("Validate Image Export")
@@ -56,9 +50,7 @@ class TestGrafanaHome:
     THEN an image file should be downloaded successfully
     """)
     @pytest.mark.regression
-    def test_export_image(self,page):
-        home = HomePage(page)
-        home.open_home()
+    def test_export_image(self,home):
         home.verify_image_export()
 
     @allure.feature("Validate Share")
@@ -68,9 +60,7 @@ class TestGrafanaHome:
     THEN a confirmation/message should appear on the screen
     """)
     @pytest.mark.regression
-    def test_share_link(self,page):
-        home = HomePage(page)
-        home.open_home()
+    def test_share_link(self,home):
         home.verify_share()
 
 
@@ -81,9 +71,7 @@ class TestGrafanaHome:
     THEN the user should be redirected to the /login page
     """)
     @pytest.mark.regression
-    def test_login_redirect(self,page):
-        home = HomePage(page)
-        home.open_home()
+    def test_login_redirect(self,home):
         home.verify_signin_redirect()
 
     @allure.feature("Validate links in updates panel")
@@ -93,9 +81,7 @@ class TestGrafanaHome:
     THEN at least one article or link entry should be present
     """)
     @pytest.mark.regression
-    def test_links(self,page):
-        home = HomePage(page)
-        home.open_home()
+    def test_links(self,home):
         home.verify_links_in_data_panel()
 
 
@@ -107,9 +93,7 @@ class TestGrafanaHome:
     AND all basic links should remain visible
     """)
     @pytest.mark.regression
-    def test_edit_cancel(self,page):
-        home = HomePage(page)
-        home.open_home()
+    def test_edit_cancel(self,home):
         home.verify_edit_and_cancel()
 
 
@@ -122,9 +106,7 @@ class TestGrafanaHome:
     AND the dashboard should save successfully
     """)
     @pytest.mark.regression
-    def test_edit_add(self,page):
-        home = HomePage(page)
-        home.open_home()
+    def test_edit_add(self,home):
         home.verify_edit_and_add()
 
 
@@ -135,9 +117,7 @@ class TestGrafanaHome:
     THEN at least one search result item should be visible
     """)
     @pytest.mark.regression
-    def test_search(self,page):
-        home = HomePage(page)
-        home.open_home()
+    def test_search(self,home):
         home.verify_search()
 
     @allure.feature("Validate page load time")

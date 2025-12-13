@@ -19,14 +19,8 @@ def page(request):
         browser_name = random.choice(browser_list)
 
     browser_obj = DriverManager.get_browser(browser_name)
-    browser = browser_obj.get_browser()
-
-    context = browser.new_context(viewport=None)
-    page = context.new_page()
+    browser,context,page = browser_obj.get_browser()
 
     yield page
 
-    page.close()
-    context.close()
-    browser.close()
     browser_obj.stop()
