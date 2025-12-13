@@ -17,7 +17,7 @@ class EdgeBrowser(BrowserBase):
         self.browser_context = self.browser.new_context(viewport=None)
         self.page = self.browser_context.new_page()
 
-        return self.browser, self.browser_context, self.page
+        return self.page
 
 
     def stop(self):
