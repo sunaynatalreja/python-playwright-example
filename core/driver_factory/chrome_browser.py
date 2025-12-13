@@ -7,7 +7,7 @@ class ChromeBrowser(BrowserBase):
         self.headless = headless
         self.slow_mo = slow_mo
 
-    def get_browser(self):
+    def get_page(self):
         self.pw = sync_playwright().start()
 
         self.browser = self.pw.chromium.launch(

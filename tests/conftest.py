@@ -1,7 +1,7 @@
 import pytest
 from utils.step_context import StepContext
 from utils.take_screenshot import take_screenshot
-from core.fixture.browser_fixture import page
+from core.fixture.browser_fixture import page,browser
 from pages.home_page import HomePage
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
