@@ -66,7 +66,6 @@ class HomePage(BasePage):
                 YOUTUBE_FRAME,
                 LINKS_PANEL,
                 PLAY_LAUNCHPAD
-
             ]
 
             for link in links:
@@ -76,21 +75,20 @@ class HomePage(BasePage):
                     expect(element).to_be_attached()
 
     def verify_pdf_export(self):
-        with allure.step("Verify exports"):
-            with allure.step("Verify export as PDF"):
-                self.page.click(EXPORT)
-                self.page.wait_for_selector(EXPORT_MENU)
-                self.page.click(EXPORT_AS_PDF)
-                self.page.wait_for_selector(EXPORT_AS_PDF_DASHBOARD)
-                with self.page.context.expect_page() as new_page_info:
-                    self.page.click(GENERATE_PDF_BUTTON)
-                pdf_page = new_page_info.value
-                pdf_page.wait_for_load_state("load")
+        with allure.step("Verify export as PDF"):
+            self.page.click(EXPORT)
+            self.page.wait_for_selector(EXPORT_MENU)
+            self.page.click(EXPORT_AS_PDF)
+            self.page.wait_for_selector(EXPORT_AS_PDF_DASHBOARD)
+            with self.page.context.expect_page() as new_page_info:
+                self.page.click(GENERATE_PDF_BUTTON)
+            pdf_page = new_page_info.value
+            pdf_page.wait_for_load_state("load")
 
-                content_type = pdf_page.evaluate("() => document.contentType")
-                assert content_type == "application/pdf"
-                take_screenshot("Verify exports","Verify export as PDF",self.page)
-                self.page.click(CLOSE_BUTTON_SECONDARY)
+            content_type = pdf_page.evaluate("() => document.contentType")
+            assert content_type == "application/pdf"
+            take_screenshot("Verify exports","Verify export as PDF",self.page)
+            self.page.click(CLOSE_BUTTON_SECONDARY)
 
     def verify_code_export(self):
         with allure.step("Verify export as CODE"):
