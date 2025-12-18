@@ -86,7 +86,7 @@ class HomePage(BasePage):
             pdf_page.wait_for_load_state("load")
 
             content_type = pdf_page.evaluate("() => document.contentType")
-            assert content_type == "application/pdf"
+            assert content_type == "application/pdf", f"Expected content_type is application/pdf,but got {content_type}"
             take_screenshot("Verify exports","Verify export as PDF",self.page)
             self.page.click(CLOSE_BUTTON_SECONDARY)
 
