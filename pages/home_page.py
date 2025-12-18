@@ -4,7 +4,7 @@ import allure
 from utils.take_screenshot import take_screenshot
 import time
 
-GRAFANA_PLAY_HEADER=".grafana-play-header"
+GRAFANA_PLAY_HEADER="//div[@class='grafana-play-header']"
 NAVIGATION_DETAIL="span[data-testid='data-testid Grafana Play Home breadcrumb']"
 SIGN_IN="//a[contains(text(),'Sign in')]"
 EDIT="//span[contains(text(),'Edit')]"
