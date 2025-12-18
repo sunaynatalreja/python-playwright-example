@@ -6,7 +6,7 @@ import time
 
 GRAFANA_PLAY_HEADER="//div[@class='grafana-play-header']"
 NAVIGATION_DETAIL="span[data-testid='data-testid Grafana Play Home breadcrumb']"
-SIGN_IN="//a[contains(text(),'Sign in')]"
+SIGN_IN=".css-n09bar"
 EDIT="//span[contains(text(),'Edit')]"
 EXPORT="//span[contains(text(),'Export')]"
 SHARE="//span[contains(text(),'Share')]"
